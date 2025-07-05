@@ -6,6 +6,5 @@ ssh-keygen -R chess.local
 
 Para ver si la camara funciona
 ```
-bash
 libcamera-hello
 ```
