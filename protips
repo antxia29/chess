@@ -1,0 +1,3 @@
+# protips
+Para que el ordenador olvide la "key":\
+ssh-keygen -R chess.local
