@@ -13,15 +13,21 @@ This project controls a physical automated chessboard using a Raspberry Pi and a
 
 These instructions will guide you through setting up the project environment from scratch on a new Raspberry Pi or a new SD card.
 
-1.  **Clone the Repository**
+1.  **Install System Dependencies**
+   First, we need to update the system and install the essential packages needed to clone the repository (`git`) and to build the Python libraries (`build-essential`, `cmake`,     FFmpeg libraries, etc.).
+    ```bash
+    sudo apt update
+    sudo apt install -y git build-essential cmake pkg-config libavformat-dev libavcodec-dev libavutil-dev libswscale-dev libavdevice-dev
+    ```
+2.  **Clone the Repository**
     Open a terminal and clone this repository into your preferred directory (e.g., `/home/pi`).
 
     ```bash
-    git clone [https://github.com/antxia29/chess.git](https://github.com/antxia29/chess.git)
+    git clone https://github.com/antxia29/chess.git
     cd chess
     ```
 
-2.  **Create the Virtual Environment**
+3.  **Create the Virtual Environment**
     It is highly recommended to use a virtual environment to isolate the project's dependencies.
 
     ```bash
@@ -29,7 +35,7 @@ These instructions will guide you through setting up the project environment fro
     ```
     *(This will create a folder named `chess` containing a clean copy of Python)*.
 
-3.  **Activate the Virtual Environment**
+4.  **Activate the Virtual Environment**
     Whenever you want to work on the project, you need to activate the environment.
 
     ```bash
@@ -37,7 +43,7 @@ These instructions will guide you through setting up the project environment fro
     ```
     *(You will notice your terminal prompt changes to show `(chess)` at the beginning)*.
 
-4.  **Install Dependencies**
+5.  **Install Dependencies**
     The `requirements.txt` file contains a list of all necessary Python libraries. `pip` will install them all automatically.
 
     ```bash
