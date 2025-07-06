@@ -1,5 +1,5 @@
 opencv-python
 numpy
-picamera2[array]
+picamera2
 Flask
 gpiozero
