@@ -13,13 +13,23 @@ This project controls a physical automated chessboard using a Raspberry Pi and a
 
 These instructions will guide you through setting up the project environment from scratch on a new Raspberry Pi or a new SD card.
 
-1.  **Install System Dependencies**
-   First, we need to update the system and install the essential packages needed to clone the repository (`git`) and to build the Python libraries (`build-essential`, `cmake`,     FFmpeg libraries, etc.).
-    ```bash
-    sudo apt update
-    sudo apt install -y git build-essential cmake pkg-config libavformat-dev libavcodec-dev libavutil-dev libswscale-dev libavdevice-dev
-    ```
-2.  **Clone the Repository**
+1. **Install System Dependencies**
+   First, we need to update the system and install the essential packages needed to clone the repository (`git`) and to build the Python libraries (`build-essential`, `cmake`,    FFmpeg libraries, etc.).
+   ```bash
+   sudo apt update
+   sudo apt full-upgrade -y # Realiza una actualización completa del sistema y dependencias
+   sudo apt install -y git build-essential cmake pkg-config libavformat-dev libavcodec-dev libavutil-dev libswscale-dev libavdevice-dev libcap-dev python3-dev
+   sudo apt install -y python3-libcamera python3-kms++
+   sudo apt autoremove -y # Limpia paquetes no necesarios
+   sudo apt clean
+   ```
+   After these commands, it's a good practice to reboot:
+
+   ```bash
+   sudo reboot
+   ```
+
+3.  **Clone the Repository**
     Open a terminal and clone this repository into your preferred directory (e.g., `/home/pi`).
 
     ```bash
@@ -27,15 +37,15 @@ These instructions will guide you through setting up the project environment fro
     cd chess
     ```
 
-3.  **Create the Virtual Environment**
+4.  **Create the Virtual Environment**
     It is highly recommended to use a virtual environment to isolate the project's dependencies.
 
     ```bash
-    python3 -m venv chess
+    python3 -m venv --system-site-packages chess
     ```
-    *(This will create a folder named `chess` containing a clean copy of Python)*.
+    *(This will create a folder named `chess` containing a clean copy of Python, and include the libraries installed out of it)*.
 
-4.  **Activate the Virtual Environment**
+5.  **Activate the Virtual Environment**
     Whenever you want to work on the project, you need to activate the environment.
 
     ```bash
@@ -43,11 +53,11 @@ These instructions will guide you through setting up the project environment fro
     ```
     *(You will notice your terminal prompt changes to show `(chess)` at the beginning)*.
 
-5.  **Install Dependencies**
-    The `requirements.txt` file contains a list of all necessary Python libraries. `pip` will install them all automatically.
-
+6.  **Install Dependencies**
+    
     ```bash
-    pip install -r requirements.txt
+    pip install --upgrade pip
+    pip install picamera2 opencv-python flask numpy
     ```
 
 You're all set! The environment is ready to go.
